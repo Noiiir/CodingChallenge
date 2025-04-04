@@ -174,11 +174,12 @@ export class TaskDetailComponent implements OnInit {
     });
   }
   
-  loadTask(id: number): void {
+  loadTask(id?: number): void {
     this.isLoading = true;
     this.error = null;
-    
-    this.taskService.getTask(id).subscribe({
+    const taskId = id ||(this.task?.id||0);
+
+    this.taskService.getTask(taskId).subscribe({
       next: (task) => {
         this.task = task;
         this.patchFormValues(task);

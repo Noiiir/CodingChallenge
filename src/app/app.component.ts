@@ -6,7 +6,8 @@ import { LayoutComponent } from './components/layout/layout.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, LayoutComponent],
-  template: '<app-layout></app-layout>'
+  //removed layout component from the app component, makes it so that layout is only rendered by the routes
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
   title = 'Task Management System';
